@@ -1,8 +1,10 @@
 //SAUCES.JS - MODEL
 //Modèle mongoose pour la création d'une sauce
 
+//Importation du package mongoose pour communiquer avec la base de données
 const mongoose = require('mongoose');
 
+//Création du schéma pour une sauce
 const sauceSchema = mongoose.Schema({
     userId: {
         type: String, 
@@ -46,4 +48,5 @@ const sauceSchema = mongoose.Schema({
     }
 });
 
+//Exportation du modèle pour le reste du projet
 module.exports = mongoose.model('Sauce', sauceSchema);

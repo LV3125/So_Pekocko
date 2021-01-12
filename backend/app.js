@@ -9,6 +9,8 @@ const bodyParser = require('body-parser');
 
 //Importation des routes pour la gestion des utilisateurs
 const userRoutes = require('./routes/user');
+//Importation des routes pour la gestion des sauces
+const sauceRoutes = require('./routes/sauce');
 
 //Connexion à la base de donnée MongoDB
 mongoose.connect("mongodb+srv://Read-Write:wm3sCDuVfh9ENANw@so-pekocko.mqnkv.mongodb.net/<dbname>?retryWrites=true&w=majority", { 
@@ -42,6 +44,8 @@ app.use(bodyParser.json());
 
 //Mise en place des routes pour la gestion des utilisateurs dans l'application
 app.use('/api/auth', userRoutes);
+//Mise en place des routes pour la gestion des sauces dans l'application 
+app.use('/api/sauces', sauceRoutes);
 
 //Exportation de l'application pour le reste du projet
 module.exports = app;
