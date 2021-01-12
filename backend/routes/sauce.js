@@ -15,6 +15,8 @@ const sauceCtrl = require('../controllers/sauce');
 router.post('/', multer, sauceCtrl.createSauce);
 //Création de la route GET pour afficher toutes les sauces
 router.get('/', sauceCtrl.getAllSauces);
+//Création de la route GET pour afficher une sauce en particulier
+router.get('/:id', sauceCtrl.getOneSauce);
 
 //Exportation des routes pour le reste du projet
 module.exports = router;
