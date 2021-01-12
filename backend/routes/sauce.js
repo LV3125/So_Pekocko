@@ -13,6 +13,8 @@ const sauceCtrl = require('../controllers/sauce');
 
 //Création de la route POST pour la création d'une sauce
 router.post('/', multer, sauceCtrl.createSauce);
+//Création de la route GET pour afficher toutes les sauces
+router.get('/', sauceCtrl.getAllSauces);
 
 //Exportation des routes pour le reste du projet
 module.exports = router;

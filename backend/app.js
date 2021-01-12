@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 //Importation du module body-parser pour extraire l'objet JSON d'une demande du frontend
 const bodyParser = require('body-parser');
 
+const path = require('path');
+
 //Importation des routes pour la gestion des utilisateurs
 const userRoutes = require('./routes/user');
 //Importation des routes pour la gestion des sauces
@@ -41,6 +43,8 @@ app.use((req, res, next) => {
 
 //Utilisation de body-parser par l'application
 app.use(bodyParser.json());
+
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 //Mise en place des routes pour la gestion des utilisateurs dans l'application
 app.use('/api/auth', userRoutes);
