@@ -19,6 +19,8 @@ router.get('/', sauceCtrl.getAllSauces);
 router.get('/:id', sauceCtrl.getOneSauce);
 //Création de la route PUT pour modifier une sauce en particulier
 router.put('/:id', multer, sauceCtrl.modifySauce);
+//Création de la route DELETE pour supprimer une sauce en particulier
+router.delete('/:id', sauceCtrl.deleteSauce);
 
 //Exportation des routes pour le reste du projet
 module.exports = router;
