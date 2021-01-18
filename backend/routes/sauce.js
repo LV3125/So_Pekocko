@@ -17,6 +17,8 @@ router.post('/', multer, sauceCtrl.createSauce);
 router.get('/', sauceCtrl.getAllSauces);
 //Création de la route GET pour afficher une sauce en particulier
 router.get('/:id', sauceCtrl.getOneSauce);
+//Création de la route PUT pour modifier une sauce en particulier
+router.put('/:id', multer, sauceCtrl.modifySauce);
 
 //Exportation des routes pour le reste du projet
 module.exports = router;

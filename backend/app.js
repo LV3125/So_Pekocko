@@ -6,7 +6,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 //Importation du module body-parser pour extraire l'objet JSON d'une demande du frontend
 const bodyParser = require('body-parser');
-
+//Importation du modul path pour gérer le chemin vers les fichiers stockés
 const path = require('path');
 
 //Importation des routes pour la gestion des utilisateurs
