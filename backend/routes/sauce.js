@@ -23,6 +23,8 @@ router.get('/:id',auth, sauceCtrl.getOneSauce);
 router.put('/:id',auth, multer, sauceCtrl.modifySauce);
 //Création de la route DELETE pour supprimer une sauce en particulier
 router.delete('/:id',auth, sauceCtrl.deleteSauce);
+//Création de la route POST pour les likes et dislikes
+router.post('/:id/like', auth, sauceCtrl.assessSauce);
 
 //Exportation des routes pour le reste du projet
 module.exports = router;
