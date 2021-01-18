@@ -9,13 +9,19 @@ const bodyParser = require('body-parser');
 //Importation du modul path pour gérer le chemin vers les fichiers stockés
 const path = require('path');
 
+//Importation et utilisation du module dotenv pour gérer la protection des informations de connexion à la base de donnée MongoDB
+require('dotenv').config();
+
 //Importation des routes pour la gestion des utilisateurs
 const userRoutes = require('./routes/user');
 //Importation des routes pour la gestion des sauces
 const sauceRoutes = require('./routes/sauce');
 
 //Connexion à la base de donnée MongoDB
-mongoose.connect("mongodb+srv://Read-Write:wm3sCDuVfh9ENANw@so-pekocko.mqnkv.mongodb.net/<dbname>?retryWrites=true&w=majority", { 
+const USER = process.env.DB_USER;
+const PASSWORD = process.env.DB_PASSWORD;
+const ADDRESS = process.env.DB_ADDRESS;
+mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@${ADDRESS}`, { 
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useUnifiedTopology: true 
