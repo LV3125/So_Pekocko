@@ -6,11 +6,21 @@ const express = require('express');
 const mongoose = require('mongoose');
 //Importation du module body-parser pour extraire l'objet JSON d'une demande du frontend
 const bodyParser = require('body-parser');
-//Importation du modul path pour gérer le chemin vers les fichiers stockés
+//Importation du module path pour gérer le chemin vers les fichiers stockés
 const path = require('path');
+//Importation du module helmet pour configurer les en-têtes HTTP et protéger l'application
+const helmet = require('helmet');
+//Importation du module express-limiter pour limiter le nombre de requête simultanée (sécurité)
+const rateLimit = require('express-rate-limit');
 
 //Importation et utilisation du module dotenv pour gérer la protection des informations de connexion à la base de donnée MongoDB
 require('dotenv').config();
+
+//constante à utiliser avec le package rateLimit
+const limiter = rateLimit({         
+    windowMs: 15 * 60 * 1000,       // = 15 minutes
+    max: 100
+})
 
 //Importation des routes pour la gestion des utilisateurs
 const userRoutes = require('./routes/user');
@@ -27,7 +37,7 @@ mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@${ADDRESS}`, {
     useUnifiedTopology: true 
 })
 .then(() => {
-    console.log('Connexion à MongoDB réussie !')
+    console.log('Connexion à MongoDB réussie !');
 })
 .catch(() => {
     console.log('Connexion à MongoDB échouée !')
@@ -35,6 +45,12 @@ mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@${ADDRESS}`, {
 
 //Création de l'application express
 const app = express();
+
+//Utilisation de la limitation de requête
+app.use(limiter);
+
+//Sécurisation des en-têtes HTTP avec helmet
+app.use(helmet());
 
 //Autorisation de communication entre des serveurs différents
 app.use((req, res, next) => {
