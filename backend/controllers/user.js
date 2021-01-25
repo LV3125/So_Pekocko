@@ -65,11 +65,12 @@ exports.login = (req, res, next) => {
                 });
             }
             //Si le mot de passe correspond, on attribut un token de connexion unique à l'utilisateur
+            
             res.status(200).json({
                 userId: user._id,
                 token: jwt.sign(
                     { userId: user._id },
-                    'RANDOM_TOKEN_SECRET',
+                    process.env.TOKEN,
                     { expiresIn: '24h' }
                 )
             });
