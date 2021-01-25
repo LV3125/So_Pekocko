@@ -19,7 +19,8 @@ exports.signup = (req, res, next) => {
         //Création d'un utilisateur selon le modèle User
         const user = new User({
             email: req.body.email,
-            password: hash
+            password: hash,
+            isAdmin: 0
         });
         user.save()
         .then(() => {

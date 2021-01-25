@@ -13,7 +13,8 @@ const userSchema = mongoose.Schema({
         type: String,
         required: [true, "Veuillez préciser votre adresse email"],
         unique: true,
-        match: [/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/, "Veuillez entrer une adresse email correcte"]
+        match: [ 	
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, "Veuillez entrer une adresse email correcte"]
     },
     password: {
         type: String,
