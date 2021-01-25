@@ -10,6 +10,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 //Importation du module helmet pour configurer les en-têtes HTTP et protéger l'application
 const helmet = require('helmet');
+//Importation du module nocache pour désactiver la mise en cache du navigateur
+const nocache = require('nocache');
 //Importation du module express-limiter pour limiter le nombre de requête simultanée (sécurité)
 const rateLimit = require('express-rate-limit');
 
@@ -51,6 +53,9 @@ app.use(limiter);
 
 //Sécurisation des en-têtes HTTP avec helmet
 app.use(helmet());
+
+//Désactivation de la mise en cache du navigateur
+app.use(nocache());
 
 //Autorisation de communication entre des serveurs différents
 app.use((req, res, next) => {

@@ -65,13 +65,14 @@ exports.login = (req, res, next) => {
                 });
             }
             //Si le mot de passe correspond, on attribut un token de connexion unique à l'utilisateur
+            const token = jwt.sign(
+                { userId: user._id },
+                'RANDOM_TOKEN_SECRET',
+                { expiresIn: '24h' }
+            )
+            res.header('Authorization', 'Bearer ' + token);
             res.status(200).json({
-                userId: user._id,
-                token: jwt.sign(
-                    { userId: user._id },
-                    'RANDOM_TOKEN_SECRET',
-                    { expiresIn: '24h' }
-                )
+                message: "Authentification réussie !"
             });
         })
         .catch(error => {
