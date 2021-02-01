@@ -3,6 +3,7 @@
 
 //Importation du package mongoose pour communiquer avec la base de données
 const mongoose = require('mongoose');
+const validateSauce = require('../middleware/verifySauce');
 
 //Création du schéma pour une sauce
 const sauceSchema = mongoose.Schema({
@@ -35,10 +36,12 @@ const sauceSchema = mongoose.Schema({
         required: true
     },
     likes: {
-        types: Number
+        types: Number,
+        default: 0
     },
     dislikes: {
-        type: Number
+        type: Number,
+        default: 0
     },
     usersLiked: {
         type: [String]
