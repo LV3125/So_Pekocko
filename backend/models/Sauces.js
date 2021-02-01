@@ -3,7 +3,6 @@
 
 //Importation du package mongoose pour communiquer avec la base de données
 const mongoose = require('mongoose');
-const validateSauce = require('../middleware/verifySauce');
 
 //Création du schéma pour une sauce
 const sauceSchema = mongoose.Schema({
