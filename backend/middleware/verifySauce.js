@@ -20,7 +20,21 @@ module.exports = (req,res,next) => {
     for (const key in sauceObjet) {
         if (sauceObjet.hasOwnProperty(key)&&compteur<5) {
             if(!controleRegex[compteur].test(sauceObjet[key])) {
-                req.body.errorMessage = "Le champ "+key+ " ne semble pas valide !";
+                if(key === "name"){
+                    req.body.errorMessage = "Le champ "+key+ " ne semble pas valide ! le champ "+ key +" doit être compris entre 2 et 40 caractères";
+                }
+                else if(key === "manufacturer"){
+                    req.body.errorMessage = "Le champ "+key+ " ne semble pas valide ! le champ "+ key +" doit être compris entre 2 et 40 caractères";
+                }
+                else if(key === "description"){
+                    req.body.errorMessage = "Le champ "+key+ " ne semble pas valide ! le champ "+ key +" doit être compris entre 5 et 150 caractères";
+                }
+                else if(key === "mainPepper"){
+                    req.body.errorMessage = "Le champ "+key+ " ne semble pas valide ! le champ "+ key +" doit être compris entre 2 et 40 caractères";
+                }
+                else if(key === "heat"){
+                    req.body.errorMessage = "Le champ "+key+ " ne semble pas valide ! le champ "+ key +" doit être compris entre 1 et 10";
+                }
                 next();
             }  
         }
