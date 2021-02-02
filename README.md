@@ -10,7 +10,7 @@ So Pekocko est une entreprise familiale de 10 salariés dont la principale activ
 * Consulter toutes les sauces
 * Modifier les sauces créées par un utilisateur (ses propres sauces)
 * Supprimer les sauces créées par un utilisateur (ses propres sauces)
-* Liker ou disliker les sauces les sauces des autres utilisateurs
+* Liker ou disliker les sauces
 
 ## Comment lancer l'application
 
