@@ -19,7 +19,7 @@ So Pekocko est une entreprise familiale de 10 salariés dont la principale activ
 Le côté frontend n'a pas été développé durant ce projet. Pour une question de faciliter de lancement de l'application, la partie frontend a été copié dans ce repository. Vous pouvez cloner ce repository pour avoir l'ensemble du projet.
 
 **Petite précision :**
-Il faut installer **node-sass** à part à partir du dossier du frontend pour le fonctionnement du frontend, puis suivre les instructions ci-dessous (dans le terminal) toujours dans le dossier du frontend:
+Il faut installer **node-sass** à part à partir du dossier du frontend, puis suivre les instructions ci-dessous (dans le terminal) toujours dans le dossier du frontend:
 
 * npm install
 * ng serve
