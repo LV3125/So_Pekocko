@@ -28,7 +28,13 @@ Se rendre à l'addresse suivante : http://localhost:4200
 
 ### Côté Backend
 
-Se rendre dans le dossier backend et suivre les instructions ci-dessous (dans le terminal):
+Se rendre dans le dossier backend :
+
+* créer un fichier .env
+* y copier les instructions envoyées dans un fichier séparé
+* sauvegarder le fichier
+
+Puis suivre les instructions ci-dessous (dans le terminal):
 
 * npm install
 * npm start
