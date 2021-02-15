@@ -11,6 +11,10 @@ module.exports = (req,res,next) => {
         req.body.oldPictureName = sauce.imageUrl.split("/images/")[1];
         next();
     })
-    .catch(error => res.status(500).json({message: error}));
+    .catch(error => {
+        res.status(500).json({
+            message: error
+        })
+    });
 } 
         

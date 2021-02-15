@@ -21,7 +21,9 @@ exports.createSauce = (req,res,next) => {
     if(!req.body.errorMessage) {
         sauce.save()
         .then(() => { 
-            res.status(201).json({ message: 'La sauce a été créée avec succès!' }); 
+            res.status(201).json({ 
+                message: 'La sauce a été créée avec succès!' 
+            }); 
         })
         .catch(error => { 
             res.status(400).json({
@@ -41,7 +43,9 @@ exports.getAllSauces = (req,res,next) => {
         res.status(200).json(sauces);
     })
     .catch(error => {
-        res.status(400).json({ message: error });
+        res.status(400).json({ 
+            error 
+        });
     });
 };
 
@@ -52,7 +56,9 @@ exports.getOneSauce = (req, res, next) => {
         res.status(200).json(sauce);
     })
     .catch( error => {
-        res.status(404).json({ error: error });
+        res.status(404).json({ 
+            error 
+        });
     });
 };
 
@@ -73,10 +79,9 @@ exports.modifyOneSauce = (req, res, next) => {
             }
         })
         .catch(error => { 
-            if(error.message.indexOf("duplicate key")>0) {
-                req.body.errorMessage = "Le nom de cette sauce existe déjà!";
-            }
-            next();
+            res.status(400).json({
+                error
+            });
         })
     } else {
         next();
@@ -90,11 +95,21 @@ exports.deleteSauce = (req, res, next) => {
         const filename = sauce.imageUrl.split('/images/')[1];
         fs.unlink(`images/${filename}`, () => {
             Sauce.deleteOne({ _id: req.params.id })
-            .then(() => res.status(200).json({ message: 'La sauce a bien été supprimée !'}))
-            .catch(error => res.status(400).json({ error }));
+            .then(() => {
+                res.status(200).json({ 
+                    message: 'La sauce a bien été supprimée !'
+                });
+            })
+            .catch(error => {
+                res.status(400).json({ 
+                    error 
+                });
+            });
         });
-      })
-      .catch(error => res.status(500).json({ error }));
+    })
+    .catch(error => res.status(500).json({ 
+        error 
+    }));
 };
 
 //Logique métier pour l'évaluation d'une sauce en particulier (POST)
@@ -168,7 +183,11 @@ exports.assessSauce = (req, res, next) => {
                     message: "Vote enregistré !" 
                 }); 
             }) 
-            .catch((error) => { res.status(400).json({ error }); }); //code 400: bad request
+            .catch((error) => { 
+                res.status(400).json({ 
+                    error 
+                }); 
+            });
             break;
           
 

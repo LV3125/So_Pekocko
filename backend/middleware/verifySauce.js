@@ -2,10 +2,10 @@
 //Middleware qui permet de vérifier les informations entrées par l'utilisateur lors de la création d'une sauce
 
 //Règles REGEX dans un tableau pour chaque champs de création d'une sauce à vérifier
-const controleRegex = [/^[a-zéèàêëîïûüôöç\d\-_\s]{2,40}$/i,
-                    /^[a-zéèàêëîïûüôöç\d\-_\s]{2,40}$/i,
-                    /^[a-zéèàêëîïûüôöç\d\-_\s]{5,150}$/i,
-                    /^[a-zéèàêëîïûüôöç\d\-_\s]{2,40}$/i,
+const controleRegex = [/^[a-zéèàâêëîïûüôöç\d\-_\s]{2,40}$/i,
+                    /^[a-zéèàâêëîïûüôöç\d\-_\s]{2,40}$/i,
+                    /^[a-zéèàâêëîïûüôöç\d\-_\s]{5,150}$/i,
+                    /^[a-zéèàâêëîïûüôöç\d\-_\s]{2,40}$/i,
                     /^([1-9]|10)$/
                 ];
 
